@@ -1,6 +1,6 @@
 {
   "name": "scaffold-serverless-service",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Scaffold a Serverless Framework service",
   "main": "index.js",
   "scripts": {
