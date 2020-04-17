@@ -1,14 +1,17 @@
 #!/usr/bin/env node
+const yargs = require('yargs');
+const chalk = require('chalk');
 const exec = require('child_process').execSync;
 const path = require('path');
 const util = require('util');
 const fs = require('fs');
+const log = require('./log.js');
 
 /**
  * Creates a service using the template in the ./template folder
  * Also replaces placeholders in package.json etc.
  */
-const run = async () => {
+const Scaffold = async () => {
     // Get name from arguments
     const name = (process.argv[2] || '').toLowerCase();
 
@@ -22,8 +25,31 @@ const run = async () => {
     const result = package.replace(/__SERVICE_NAME__/g, name);
     await util.promisify(fs.writeFile)(packagePath, result, 'utf8');
 
-    // Done!
-    console.log("The service was created succesfully.");
+    log.ok(`Created new service at ${chalk.green.underline.bold(`${name}/serverless.yml`)}`);
 }
 
-run();
+yargs
+    .scriptName('scaffold-service')
+    .command(
+        '$0 [name]', 
+        chalk.green.bold('Scaffold a Serverless Framework service'), 
+        (y) => {
+            y.example('$0', 'new-service');
+        }, 
+        (argv) => {
+            return Scaffold(argv.name).then(() => {
+                log.info(chalk.bold("Scaffolding complete!"))
+            })
+            .catch(ex => {                               
+                log.err(ex);
+            });
+    })
+    .option('name', {
+        alias: 'n',
+        type: 'string',
+        description: chalk.blue('The name of the service to scaffold'),
+        demandOption: true
+    })
+    .wrap(yargs.terminalWidth())   
+    .help()
+    .argv;

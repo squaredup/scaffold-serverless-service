@@ -11,5 +11,10 @@
   "bin": {
     "scaffold-service": "index.js"
   },
-  "preferGlobal": true
+  "preferGlobal": true,
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "log-symbols": "^3.0.0",
+    "yargs": "^15.3.1"
+  }
 }
