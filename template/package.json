@@ -1,0 +1,12 @@
+{
+  "name": "saas-service-template",
+  "version": "1.0.0",
+  "main": "handler.js",
+  "scripts": {
+    "test": "npm --prefix ./../ test -- __SERVICE_NAME__",
+    "test:unit": "npm --prefix ./../ run test -- __SERVICE_NAME__/tests/",
+    "test:integration": "npm --prefix ./../ run test -- __SERVICE_NAME__/integrationTests/"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

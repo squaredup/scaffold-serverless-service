@@ -1,12 +1,15 @@
 {
-  "name": "saas-service-template",
-  "version": "1.0.0",
-  "main": "handler.js",
+  "name": "scaffold-serverless-service",
+  "version": "0.0.1",
+  "description": "Scaffold a Serverless Framework service",
+  "main": "index.js",
   "scripts": {
-    "test": "npm --prefix ./../ test -- dummy-service-1",
-    "test:unit": "npm --prefix ./../ run test -- dummy-service-1/tests/",
-    "test:integration": "npm --prefix ./../ run test -- dummy-service-1/integrationTests/"
+    "test": "echo \"Error: no test specified\""
   },
-  "devDependencies": {},
-  "dependencies": {}
+  "author": "Squared Up Ltd",
+  "license": "ISC",
+  "bin": {
+    "scaffold-service": "index.js"
+  },
+  "preferGlobal": true
 }
