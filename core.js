@@ -23,6 +23,8 @@ const Scaffold = async (name) => {
     await util.promisify(fs.writeFile)(packagePath, result, 'utf8');
 
     log.ok(`Created new service at ${chalk.green.underline.bold(`${nameLower}/serverless.yml`)}`);
+
+    return path.resolve(process.cwd(), nameLower, "serverless.yml");
 }
 
 module.exports = { Scaffold };
