@@ -10,7 +10,7 @@ const fs = require('fs');
 
 const run = async () => {
     // Get name from arguments
-    const name = process.argv[2] || '';
+    const name = (process.argv[2] || '').toLowerCase();
 
     // Create the service using template
     exec('serverless create --template-path "./template" --name ' + name, {stdio:[0, 1, 2]});
