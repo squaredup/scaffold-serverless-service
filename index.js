@@ -1,13 +1,13 @@
-/**
- * Creates a service using the template at github:squaredup/saas-service-template
- * Also replaces placeholders in package.json etc.
- */
-
+#!/usr/bin/env node
 const exec = require('child_process').execSync;
 const path = require('path');
 const util = require('util');
 const fs = require('fs');
 
+/**
+ * Creates a service using the template in the ./template folder
+ * Also replaces placeholders in package.json etc.
+ */
 const run = async () => {
     // Get name from arguments
     const name = (process.argv[2] || '').toLowerCase();
