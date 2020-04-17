@@ -13,7 +13,8 @@ const run = async () => {
     const name = (process.argv[2] || '').toLowerCase();
 
     // Create the service using template
-    exec('serverless create --template-path "./template" --name ' + name, {stdio:[0, 1, 2]});
+    const template = path.resolve(__dirname, "template");
+    exec(`serverless create --template-path "${template}" --name ${name}`, {stdio:[0, 1, 2]});
 
     // Replace tokens in package.json
     const packagePath = path.resolve(process.cwd(), name, "package.json");
