@@ -11,6 +11,8 @@ It's recommend to install this globally, so it's available across all projects.
 
 `npm install -g scaffold-serverless-service`
 
+**Note: This tools expects `serverless` to be installed globally.**
+
 ## Usage
 
 To scaffold a service use: 
