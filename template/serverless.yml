@@ -12,6 +12,7 @@ provider:
   runtime: ${file(../../serverless-properties.yml):custom.default.runtime}
   memorySize: ${file(../../serverless-properties.yml):custom.default.memorySize}
   logRetentionInDays: ${self:custom.accountConfig.logRetentionInDays}
+  stackTags: ${file(../../serverless-properties.yml):custom.stackTags}
   httpApi: ${file(../api-properties.yml):httpApi}
 
 functions:
