@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "main": "handler.js",
   "scripts": {
-    "test": "npm --prefix ./../ test -- __SERVICE_NAME__",
-    "test:unit": "npm --prefix ./../ run test -- __SERVICE_NAME__/tests/",
-    "test:integration": "npm --prefix ./../ run test -- __SERVICE_NAME__/integrationTests/"
+    "test": "npm --prefix ./../../../ test -- __SERVICE_NAME__",
+    "test:unit": "npm --prefix ./../../../ run test -- __SERVICE_NAME__/tests/",
+    "test:integration": "npm --prefix ./../../../ run test -- __SERVICE_NAME__/integrationTests/"
   },
   "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.51",
+    "lambda-api": "^0.10.6",
+    "dynamo-wrapper": "file:../../common/dynamo-wrapper",
+    "lambda-helper": "file:../../common/lambda-helper"
+  }
 }

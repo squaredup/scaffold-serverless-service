@@ -5,20 +5,20 @@ plugins:
   - serverless-offline # Testing only
 
 custom:
-  accountConfig: ${file(../../serverless-properties.yml):custom.${opt:account}}
+  accountConfig: ${file(../../../../serverless-properties.yml):custom.${opt:account}}
 
 provider:
   name: aws
-  runtime: ${file(../../serverless-properties.yml):custom.default.runtime}
-  memorySize: ${file(../../serverless-properties.yml):custom.default.memorySize}
+  runtime: ${file(../../../../serverless-properties.yml):custom.default.runtime}
+  memorySize: ${file(../../../../serverless-properties.yml):custom.default.memorySize}
   logRetentionInDays: ${self:custom.accountConfig.logRetentionInDays}
-  stackTags: ${file(../../serverless-properties.yml):custom.stackTags}
-  httpApi: ${file(../api-properties.yml):httpApi}
+  stackTags: ${file(../../../../serverless-properties.yml):custom.stackTags}
+  httpApi: ${file(../../properties.yml):httpApi}
+  environment: ${file(../../properties.yml):environment}
 
 functions:
-  run:
+  resource:
     handler: handler.run
     events:
-      - httpApi:
-          path: /run
-          method: GET
+      - httpApi: 'GET /resources' # Example
+      - httpApi: 'POST /resources' # Example
