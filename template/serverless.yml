@@ -15,9 +15,11 @@ provider:
   stackTags: ${file(../../../../serverless-properties.yml):custom.stackTags}
   httpApi: ${file(../../properties.yml):httpApi}
   environment: ${file(../../properties.yml):environment}
+  deploymentBucket: 
+    name: ${file(../../../../serverless-properties.yml):custom.deploymentBucket}
 
 functions:
-  resource:
+  resources:
     handler: handler.run
     events:
       - httpApi: 'GET /resources' # Example

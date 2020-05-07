@@ -47,9 +47,7 @@ export const run: APIGatewayProxyHandler = async (event: APIGatewayEvent, contex
     // We fix it by stripping it before passing it to the router
     // See https://github.com/jeremydaly/lambda-api/issues/136
     // See https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
-    if (event.path.startsWith(`/${event.requestContext.stage}`)) {
-        event.path = event.path.substring(event.requestContext.stage.length + 1);
-    }
+    event.path = event.requestContext.path;
 
     // Send the request through our router
     return api.run(event, context);
